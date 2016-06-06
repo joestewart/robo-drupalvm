@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "JoeStewart\\RoboDrupalVM\\Task\\": "src"
+            "JoeStewart\\RoboDrupalVM\\": "src"
         }
     },
     "require": {
