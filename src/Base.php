@@ -2,15 +2,7 @@
 
 namespace JoeStewart\RoboDrupalVM;
 
-use Robo\Result;
-use Robo\Task\BaseTask;
-use Robo\Common\ExecOneCommand;
-use Robo\Contract\CommandInterface;
 use Robo\Contract\TaskInterface;
-use Robo\Contract\PrintedInterface;
-use Robo\Exception\TaskException;
-use Robo\Common\Timer;
-use Symfony\Component\Console\Output\NullOutput;
 
 abstract class Base extends \Robo\Tasks implements TaskInterface
 {
