@@ -1,19 +1,22 @@
 <?php
 
-use  JoeStewart\RoboDrupalVM\Task\Vm;
+namespace JoeStewart\RoboDrupalVM\Command;
 
-class RoboFile extends \Robo\Tasks
+trait Vm
 {
-    use \JoeStewart\RoboDrupalVM\Task\loadTasks;
-    use \JoeStewart\RoboDrupalVM\Command\Vm;
 
-    private $vm;
-    private $configuration;
-
-    public function __construct() {
-
-      $this->vm = New Vm();
-      $this->configuration = $this->vm->configuration;
+	/**
+     * Vm Init task.
+     *
+     * @return object Result
+     */
+    public function vmInit()
+    {
+        $result = $this->taskVmInit()
+            ->configFile()
+            ->vagrantFile()
+            ->run();
+        return $result;
     }
 
     public function vmTest()
@@ -28,4 +31,5 @@ class RoboFile extends \Robo\Tasks
             ->arg('tests')
             ->run();
     }
+
 }
