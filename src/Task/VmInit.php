@@ -10,7 +10,6 @@ use Robo\Common\TaskIO;
 
 class VmInit extends \JoeStewart\RoboDrupalVM\Task\Base
 {
-    // use TaskIO;
     use Timer;
     use ResourceExistenceChecker;
 
@@ -25,7 +24,7 @@ class VmInit extends \JoeStewart\RoboDrupalVM\Task\Base
         if(!file_exists($this->getVagrantConfig())) {
             $source_file = $this->getVagrantSourceConfig();
             $dest_file = $this->getVagrantConfig();
-            $value = $this->taskFileSystemStack()
+            $this->taskFileSystemStack()
                 ->copy($source_file, $dest_file)
                 ->run();
         }

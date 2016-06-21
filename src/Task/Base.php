@@ -33,25 +33,25 @@ abstract class Base extends \Robo\Tasks implements TaskInterface
         }
     }
 
-    public function drupalvm_package($drupalvm_package) {
+    public function drupalvmPackage($drupalvm_package) {
         $this->drupalvm_package = $drupalvm_package;
 
         return $this;
     }
 
-    public function config_dir($config_dir) {
+    public function configDir($config_dir) {
         $this->config_dir = $config_dir;
 
         return $this;
     }
  
-    public function config_filename($config_filename) {
+    public function configFilename($config_filename) {
         $this->config_filename = $config_filename;
 
         return $this;
     }
 
-    public function config_source_filename($config_source_filename) {
+    public function configSourceFilename($config_source_filename) {
         $this->config_source_filename = $config_source_filename;
 
         return $this;

@@ -1,6 +1,8 @@
 <?php
 namespace JoeStewart\RoboDrupalVM\Task;
 
+use Robo\Container\SimpleServiceProvider;
+
 trait loadTasks
 {
  
