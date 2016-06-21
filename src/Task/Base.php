@@ -22,10 +22,10 @@ abstract class Base extends \Robo\Tasks implements TaskInterface
 
     public function __construct($config_file = null) {
 
-        $this->drupalvm_package('geerlingguy/drupal-vm');
-        $this->config_dir('config');
-        $this->config_filename('config.yml');
-        $this->config_source_filename('default.config.yml');
+        $this->drupalvmPackage('geerlingguy/drupal-vm');
+        $this->configDir('config');
+        $this->configFilename('config.yml');
+        $this->configSourceFilename('default.config.yml');
 
         if (file_exists($this->getVagrantConfig($config_file))) {
           $contents = file_get_contents($this->getVagrantConfig($config_file));

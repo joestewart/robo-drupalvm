@@ -39,7 +39,6 @@ class VmInit extends \JoeStewart\RoboDrupalVM\Task\Base
     public function vagrantFile()
     {
         if(!file_exists($this->getProjectRoot() . '/Vagrantfile')) {
-           // $this->printTaskInfo($this->getProjectRoot() . '/Vagrantfile' . 'file not found, initializing...');
            $text = <<<EOF
  # The absolute path to the root directory of the project. Both Drupal VM and
 # the config file need to be contained within this path.

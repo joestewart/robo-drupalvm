@@ -8,7 +8,6 @@ class RoboFile extends \Robo\Tasks
     use \JoeStewart\RoboDrupalVM\Command\Vm;
 
     private $vm;
-    private $configuration;
 
     public function __construct() {
 
