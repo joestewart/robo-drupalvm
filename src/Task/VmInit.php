@@ -36,7 +36,7 @@ class VmInit extends \JoeStewart\RoboDrupalVM\Task\Base
      *
      * @return $this
      */
-    public function vagrantFile()
+    public function vagrantFile($drupalvm_package = 'geerlingguy/drupal-vm')
     {
         if(!file_exists($this->getProjectRoot() . '/Vagrantfile')) {
            $text = <<<EOF
@@ -52,6 +52,9 @@ ENV['DRUPALVM_DIR'] = "vendor/geerlingguy/drupal-vm"
 # Load the real Vagrantfile
 load "#{__dir__}/#{ENV['DRUPALVM_DIR']}/Vagrantfile"
 EOF;
+            if($drupalvm_package != 'geerlingguy/drupal-vm') {
+                $text = str_replace('geerlingguy/drupal-vm', $drupalvm_package, $text);
+            }
             $this->taskWriteToFile($this->getProjectRoot() . '/Vagrantfile')
                 ->text($text)
                 ->run();
