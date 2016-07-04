@@ -5,7 +5,7 @@ namespace JoeStewart\RoboDrupalVM\Task;
 
 use Robo\Contract\TaskInterface;
 
-abstract class Base extends \Robo\Tasks implements TaskInterface
+abstract class Base extends \Robo\Task\BaseTask
 {
     
     private $vendor_dir;
@@ -92,12 +92,12 @@ abstract class Base extends \Robo\Tasks implements TaskInterface
     }
 
     public function getComposerConfig( $setting) {
-      $value = $this->taskExec('composer')
-          ->arg('config ' . $setting . ' --absolute --working-dir=' . $this->getProjectRoot())
-          ->printed(false)
-          ->run()
-          ->getMessage();
-      return str_replace("\n", '', $value);
+        $isPrinted = isset($this->isPrinted) ? $this->isPrinted : true;
+        $this->isPrinted = false;
+        $result = $this->executeCommand('composer config ' . $setting . ' --absolute --working-dir=' . $this->getProjectRoot());
+        $value = $result->getMessage();
+        $this->isPrinted = $isPrinted;
+        return str_replace("\n", '', $value);
     }
 
     public function getVagrantConfig() {
@@ -116,7 +116,7 @@ abstract class Base extends \Robo\Tasks implements TaskInterface
         return $this->getProjectRoot() . '/vendor/' . $this->drupalvm_package . '/' . $this->config_source_filename;
     }
 
-    public function getConfigValue($variable_name) {
+    public function getDrupalVMConfigValue($variable_name) {
         return $this->configuration[$variable_name];
     }
 }

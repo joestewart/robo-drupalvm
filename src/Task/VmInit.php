@@ -12,6 +12,8 @@ class VmInit extends \JoeStewart\RoboDrupalVM\Task\Base
 {
     use Timer;
     use ResourceExistenceChecker;
+    use \Robo\Task\File\loadTasks;
+    use \Robo\Task\FileSystem\loadTasks;
 
 
     /**
