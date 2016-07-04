@@ -2,9 +2,6 @@
 
 namespace JoeStewart\RoboDrupalVM\Task;
 
-
-use Robo\Contract\TaskInterface;
-
 abstract class Base extends \Robo\Task\BaseTask
 {
     
