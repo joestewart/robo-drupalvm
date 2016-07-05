@@ -4,7 +4,8 @@ namespace JoeStewart\RoboDrupalVM\Task;
 
 abstract class Base extends \Robo\Task\BaseTask
 {
-    
+    use \Robo\Common\ExecOneCommand;
+
     private $vendor_dir;
     private $vendor_bin;
     private $config_dir;
@@ -41,7 +42,7 @@ abstract class Base extends \Robo\Task\BaseTask
 
         return $this;
     }
- 
+
     public function configFilename($config_filename) {
         $this->config_filename = $config_filename;
 
@@ -57,11 +58,11 @@ abstract class Base extends \Robo\Task\BaseTask
     public function getProjectRoot($project_root =  __DIR__ . '/../../../../../') {
       return realpath($project_root);
     }
-    
+
     public function getComposerJson() {
       return $this->getProjectRoot() . '/composer.json';
     }
-    
+
     public function getVendorDir() {
       if(!$this->vendor_dir) {
         $this->vendor_dir = $this->getComposerConfig( 'vendor-dir');
