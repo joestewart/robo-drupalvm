@@ -10,12 +10,10 @@ use Robo\Contract\CommandInterface;
 use Robo\Contract\TaskInterface;
 use Robo\Contract\PrintedInterface;
 use Robo\Exception\TaskException;
-use Robo\Common\Timer;
 
 class Vm extends \JoeStewart\RoboDrupalVM\Task\Base
 {
-    use Timer;
- 
+
     /**
      * @return Result
      */
