@@ -7,4 +7,4 @@ install:
   - composer self-update
   - composer install
 script:
-  - vendor/bin/robo vm:test
+  - vendor/bin/robo test
