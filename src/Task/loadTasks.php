@@ -1,29 +1,15 @@
 <?php
 namespace JoeStewart\RoboDrupalVM\Task;
 
-use Robo\Container\SimpleServiceProvider;
-
 trait loadTasks
 {
  
-   /**
-     * Return services.
-     */
-    public static function getVmServices()
-    {
-        return new SimpleServiceProvider(
-            [
-                'taskVmInit' => VmInit::class,
-            ]
-        );
-    }
-
     /**
-     * @return VagrantInit
+     * @return VmInit
      */
     protected function taskVmInit()
     {
-        return new VmInit();
+        return $this->task(VmInit::class);
     }
 
 }
