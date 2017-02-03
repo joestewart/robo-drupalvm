@@ -23,12 +23,15 @@ class VmInit extends \JoeStewart\RoboDrupalVM\Task\Base implements BuilderAwareI
      *
      * @return $this
      */
-    public function configFile()
+    public function configFile($source_file = null, $dest_file = null)
     {
         if(!file_exists($this->getVagrantConfig())) {
-            $source_file = $this->getVagrantSourceConfig();
-            $dest_file = $this->getVagrantConfig();
-
+            if(!$source_file) {
+                $source_file = $this->getVagrantSourceConfig();
+            }
+            if(!$dest_file) {
+                $dest_file = $this->getVagrantConfig();
+            }
             $this->collectionBuilder()->taskFileSystemStack()
                 ->copy($source_file, $dest_file)
                 ->run();
