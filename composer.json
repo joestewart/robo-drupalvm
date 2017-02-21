@@ -2,6 +2,7 @@
     "name": "joestewart/robo-drupalvm",
     "description": "Drupal VM tasks Robo Task Runner",
     "license": "MIT",
+    "type": "robo-tasks",
     "authors": [
         {
             "name": "Joe Stewart",
@@ -14,7 +15,8 @@
         }
     },
     "require": {
-        "consolidation/robo": "~0.7.2",
+        "php": ">=5.5.0",
+        "consolidation/Robo": "~1",
         "symfony/yaml": "~2.8"
     },
     "require-dev": {

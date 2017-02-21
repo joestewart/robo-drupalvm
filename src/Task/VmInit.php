@@ -7,9 +7,12 @@ use Robo\Result;
 use Robo\Common\ResourceExistenceChecker;
 use Robo\Common\Timer;
 use Robo\Common\TaskIO;
+use Robo\Contract\BuilderAwareInterface;
+use Robo\Common\BuilderAwareTrait;
 
-class VmInit extends \JoeStewart\RoboDrupalVM\Task\Base
+class VmInit extends \JoeStewart\RoboDrupalVM\Task\Base implements BuilderAwareInterface
 {
+    use BuilderAwareTrait;
     use ResourceExistenceChecker;
     use \Robo\Task\File\loadTasks;
     use \Robo\Task\FileSystem\loadTasks;
@@ -29,7 +32,7 @@ class VmInit extends \JoeStewart\RoboDrupalVM\Task\Base
             if(!$dest_file) {
                 $dest_file = $this->getVagrantConfig();
             }
-            $this->taskFileSystemStack()
+            $this->collectionBuilder()->taskFileSystemStack()
                 ->copy($source_file, $dest_file)
                 ->run();
         }

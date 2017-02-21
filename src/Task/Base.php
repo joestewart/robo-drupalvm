@@ -2,7 +2,9 @@
 
 namespace JoeStewart\RoboDrupalVM\Task;
 
-abstract class Base extends \Robo\Task\BaseTask
+use Robo\Task\BaseTask;
+
+abstract class Base extends BaseTask
 {
     use \Robo\Common\ExecOneCommand;
 
