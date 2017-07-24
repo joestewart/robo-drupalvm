@@ -63,7 +63,7 @@ EOF;
             if($drupalvm_package != 'geerlingguy/drupal-vm') {
                 $text = str_replace('geerlingguy/drupal-vm', $drupalvm_package, $text);
             }
-            $this->taskWriteToFile($this->getProjectRoot() . '/Vagrantfile')
+            $this->collectionBuilder()->taskWriteToFile($this->getProjectRoot() . '/Vagrantfile')
                 ->text($text)
                 ->run();
         }
