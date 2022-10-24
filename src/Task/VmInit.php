@@ -14,9 +14,6 @@ class VmInit extends \JoeStewart\RoboDrupalVM\Task\Base implements BuilderAwareI
 {
     use BuilderAwareTrait;
     use ResourceExistenceChecker;
-    use \Robo\Task\File\loadTasks;
-    use \Robo\Task\FileSystem\loadTasks;
-
 
     /**
      * Ensures config.yml is installed.
